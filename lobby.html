@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lobby - SmartRoute</title>
+  <link rel="stylesheet" href="../css/lobby.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <i class="fas fa-route brand-icon"></i>
+        <h1>SmartRoute</h1>
+      </div>
+        <a href="index.html">
+          <button class="btn btn-danger" id="logout-btn">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </button>
+        </a>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="welcome-badge">
+        <i class="fas fa-star"></i>
+        <span>Selamat Datang Kembali</span>
+      </div>
+      <h2 id="welcome-text" class="hero-title">Halo, Selamat Datang!</h2>
+      <p class="hero-subtitle">Mulai perjalanan belajar Anda bersama SmartRoute. Pilih langkah berikutnya untuk mencapai tujuan Anda.</p>
+      
+      <!-- Quick Stats -->
+      <div class="quick-stats">
+        <div class="stat-item">
+          <i class="fas fa-check-circle"></i>
+          <div class="stat-info">
+            <span class="stat-number">3</span>
+            <span class="stat-label">Tes Selesai</span>
+          </div>
+        </div>
+        <div class="stat-item">
+          <i class="fas fa-trophy"></i>
+          <div class="stat-info">
+            <span class="stat-number">70%</span>
+            <span class="stat-label">Rata-rata Nilai</span>
+          </div>
+        </div>
+        <div class="stat-item">
+          <i class="fas fa-fire"></i>
+          <div class="stat-info">
+            <span class="stat-number">3</span>
+            <span class="stat-label">Hari Beruntun</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Actions -->
+  <section class="main-actions">
+    <div class="container">
+      <h3 class="section-title">Apa yang ingin Anda lakukan hari ini?</h3>
+      
+      <div class="action-cards">
+        <!-- Diagnostic Test Card -->
+        <div class="action-card card-primary">
+          <div class="card-icon">
+            <i class="fas fa-clipboard-check"></i>
+          </div>
+          <div class="card-content">
+            <h4>Tes Diagnostik</h4>
+            <p>Uji kemampuan Anda dan temukan area yang perlu ditingkatkan</p>
+            <ul class="card-features">
+              <li><i class="fas fa-check"></i> Evaluasi Komprehensif</li>
+              <li><i class="fas fa-check"></i> Analisis Mendalam</li>
+              <li><i class="fas fa-check"></i> Rekomendasi Personal</li>
+            </ul>
+          </div>
+          <a href="diagnostic.html" class="card-btn">
+            <span>Mulai Tes</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <div class="card-badge">Populer</div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Learning Progress -->
+  <section class="progress-section">
+    <div class="container">
+      <div class="progress-header">
+        <h3 class="section-title">Tipe Gaya Belajar</h3>
+      </div>
+
+      <div class="progress-grid">
+        <div class="progress-card">
+          <div class="progress-icon math">
+            <i class="fas fa-calculator"></i>
+          </div>
+          <div class="progress-info">
+            <h5>Visual</h5>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 75%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="progress-card">
+          <div class="progress-icon science">
+            <i class="fas fa-flask"></i>
+          </div>
+          <div class="progress-info">
+            <h5>Sosial</h5>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="progress-card">
+          <div class="progress-icon language">
+            <i class="fas fa-book"></i>
+          </div>
+          <div class="progress-info">
+            <h5>Verbal</h5>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 85%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="progress-card">
+          <div class="progress-icon language">
+            <i class="fas fa-book"></i>
+          </div>
+          <div class="progress-info">
+            <h5>Kinestetik</h5>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 55%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Activities -->
+  <section class="activities-section">
+    <div class="container">
+      <h3 class="section-title">Aktivitas Terbaru</h3>
+      
+      <div class="activities-grid">
+        <div class="activity-item">
+          <div class="activity-icon completed">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <div class="activity-content">
+            <h5>Tes Diagnostik Selesai</h5>
+            <p>Anda menyelesaikan Tes Diagnostik dan memperoleh gaya belajar Verbal.</p>
+            <span class="activity-time"><i class="far fa-clock"></i> 1 jam yang lalu</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tips Section -->
+  <section class="tips-section">
+    <div class="container">
+      <div class="tips-card">
+        <div class="tips-icon">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <div class="tips-content">
+          <h4>💡 Tips Hari Ini</h4>
+          <p>Konsistensi adalah kunci kesuksesan. Luangkan waktu 30 menit setiap hari untuk belajar dan Anda akan melihat peningkatan yang signifikan!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4><i class="fas fa-route"></i> SmartRoute</h4>
+          <p>Platform pembelajaran cerdas untuk meningkatkan kemampuan Anda</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Navigasi</h4>
+          <ul>
+            <li><a href="diagnostic.html">Tes Diagnostik</a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div> 
+        
+        <div class="footer-section">
+          <h4>Bantuan</h4>
+          <ul>
+            <li><a href="#">Pusat Bantuan</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Hubungi Kami</a></li>
+            <li><a href="#">Syarat & Ketentuan</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Kontak</h4>
+          <ul>
+            <li>Leontonius Layuk</li>
+            <li>Denaldy Sahensolar</li>
+            <li>Yendri Pontoh</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 SmartRoute. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Kebijakan Privasi</a>
+          <span>•</span>
+          <a href="#">Syarat Layanan</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+  if (!localStorage.getItem("currentUser")) {
+    window.location.href = "login.html";
+  }
+  </script>
+</body>
+</html>

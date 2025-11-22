@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rute Belajar - SmartRoute</title>
+  <link rel="stylesheet" href="../css/route.css">
+</head>
+<body>
+  <nav class="navbar">
+    <h1>SmartRoute</h1>
+    <a href="lobby.html" class="btn">Kembali</a>
+  </nav>
+
+  <div class="container center">
+    <h2>🎯 Rute Belajar Kamu adalah...</h2>
+    <div id="result" class="result-box"></div>
+  </div>
+
+  <!-- Load script utama -->
+  <script src="../js/script.js"></script>
+  
+  <!-- Script enhancement untuk UI -->
+  <script>
+    // Enhanced UI untuk halaman Rute Belajar
+    if (document.title.includes("Rute Belajar")) {
+      // Mapping icon untuk setiap gaya belajar
+      const styleIcons = {
+        visual: '👁️',
+        verbal: '📚',
+        kinestetik: '✋',
+        sosial: '👥'
+      };
+
+      // Deskripsi gaya belajar
+      const styleDescriptions = {
+        visual: 'Kamu belajar paling efektif melalui gambar, diagram, dan visualisasi. Mata adalah jendela belajarmu!',
+        verbal: 'Kamu lebih suka belajar melalui kata-kata, membaca, dan menulis. Bahasa adalah kekuatanmu!',
+        kinestetik: 'Kamu belajar terbaik dengan praktik langsung dan pengalaman nyata. Learning by doing!',
+        sosial: 'Kamu berkembang dalam lingkungan kolaboratif dan diskusi kelompok. Bersama lebih baik!'
+      };
+
+      // Override output result dari script.js
+      setTimeout(() => {
+        const resultBox = document.getElementById("result");
+        if (resultBox && resultBox.innerHTML) {
+          // Ambil gaya belajar dari HTML yang sudah di-generate
+          const h3 = resultBox.querySelector('h3');
+          if (h3) {
+            const styleText = h3.textContent.replace('Gaya Belajar ', '').toLowerCase();
+            const icon = styleIcons[styleText] || '🎓';
+            const description = styleDescriptions[styleText] || 'Selamat! Kamu telah menemukan gaya belajarmu.';
+            
+            // Ambil rekomendasi yang sudah ada
+            const ul = resultBox.querySelector('ul');
+            const recommendations = ul ? ul.innerHTML : '';
+            
+            // Rebuild dengan desain baru
+            resultBox.innerHTML = `
+              <div class="style-icon">${icon}</div>
+              <h3>Gaya Belajar ${styleText.charAt(0).toUpperCase() + styleText.slice(1)}</h3>
+              <div class="style-description">
+                ${description}
+              </div>
+              
+              <h4 style="color: #667eea; font-size: 1.5rem; margin: 2rem 0 1rem;">📋 Rekomendasi Strategi Belajar</h4>
+              <ul>${recommendations}</ul>
+              
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <h4>Tingkat Kesesuaian</h4>
+                  <p>85%</p>
+                </div>
+                <div class="stat-card">
+                  <h4>Efektivitas</h4>
+                  <p>⭐⭐⭐⭐</p>
+                </div>
+                <div class="stat-card">
+                  <h4>Metode</h4>
+                  <p>${resultBox.querySelectorAll('li').length}</p>
+                </div>
+              </div>
+              
+              <div class="action-buttons">
+                <a href="lobby.html" class="btn-primary">Kembali ke Lobby</a>
+                <a href="diagnostic.html" class="btn-secondary">Ulangi Tes</a>
+              </div>
+            `;
+          }
+        }
+      }, 100);
+    }
+  </script>
+</body>
+</html>

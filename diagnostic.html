@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tes Diagnostik - SmartRoute</title>
+  <link rel="stylesheet" href="../css/diagnostic.css">
+</head>
+<body>
+  <nav class="navbar">
+    <h1>SmartRoute</h1>
+    <a href="lobby.html" class="btn">Kembali</a>
+  </nav>
+
+  <div class="container">
+    <div class="test-card">
+      <h2>Tes Diagnostik Gaya Belajar</h2>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress"></div>
+      </div>
+      <div class="question-number" id="question-counter">Pertanyaan 1 dari 4</div>
+      <p id="question">Pertanyaan akan muncul di sini</p>
+      <div id="options" class="option-container"></div>
+      <button id="next-question" class="btn large">Lihat Rute Belajar</button>
+    </div>
+  </div>
+
+  <!-- Load script utama -->
+  <script src="../js/script.js"></script>
+  
+  <!-- Script enhancement untuk UI -->
+  <script>
+    // Enhanced UI updates for diagnostic test
+    if (document.title.includes("Tes Diagnostik")) {
+      const progressBar = document.getElementById("progress");
+      const questionCounter = document.getElementById("question-counter");
+      const totalQuestions = 4;
+
+      // Update progress bar saat pertanyaan berganti
+      const updateProgress = () => {
+        if (typeof current !== 'undefined') {
+          const progress = ((current + 1) / totalQuestions) * 100;
+          if (progressBar) progressBar.style.width = progress + '%';
+          if (questionCounter) {
+            questionCounter.textContent = `Pertanyaan ${current + 1} dari ${totalQuestions}`;
+          }
+        }
+      };
+
+      // Monitor perubahan pada options untuk detect jawaban
+      const observer = new MutationObserver(() => {
+        updateProgress();
+      });
+
+      const optionsContainer = document.getElementById("options");
+      if (optionsContainer) {
+        observer.observe(optionsContainer, { childList: true, subtree: true });
+      }
+
+      // Override finishTest untuk animasi completion
+      setTimeout(() => {
+        if (typeof window.finishTest === 'function') {
+          const originalFinishTest = window.finishTest;
+          window.finishTest = function() {
+            const qText = document.getElementById("question");
+            const options = document.getElementById("options");
+            const nextBtn = document.getElementById("next-question");
+            const questionCounter = document.getElementById("question-counter");
+            
+            if (progressBar) progressBar.style.width = '100%';
+            if (questionCounter) questionCounter.style.display = 'none';
+            
+            qText.innerHTML = `
+              <div class="completion-message">
+                <div class="checkmark">
+                  <svg viewBox="0 0 52 52">
+                    <polyline points="14,27 22,35 38,19"/>
+                  </svg>
+                </div>
+                <h3>Tes Selesai!</h3>
+                <p>Analisis gaya belajar Anda sedang diproses...</p>
+              </div>
+            `;
+            options.innerHTML = "";
+            nextBtn.style.display = "block";
+            nextBtn.textContent = "Lihat Rute Belajar";
+            nextBtn.onclick = () => {
+              localStorage.setItem("learningProfile", JSON.stringify(responses));
+              window.location.href = "route.html";
+            };
+          };
+        }
+      }, 100);
+    }
+  </script>
+</body>
+</html>
